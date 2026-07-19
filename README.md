@@ -1,4 +1,4 @@
-# Offtrack — Subscription Fatigue Checker
+# Offtrack — Conquering Subscription Fatigue 
 
 > Stop paying for subscriptions you forgot.
 
