@@ -1,0 +1,5 @@
+import { BarChart3, CalendarDays, CreditCard, LogOut, Plus, Settings, Sparkles, UserRound, WandSparkles } from 'lucide-react'
+import { Logo } from './Logo'
+type Props={active:string;setActive:(tab:string)=>void;onAdd:()=>void;onSignOut:()=>void}
+const items=[['overview',Sparkles,'Overview'],['subscriptions',CreditCard,'Subscriptions'],['calendar',CalendarDays,'Renewal calendar'],['assistant',WandSparkles,'Cancel assistant'],['analytics',BarChart3,'Insights'],['profile',UserRound,'Profile'],['settings',Settings,'Settings']] as const
+export function AppSidebar({active,setActive,onAdd,onSignOut}:Props){return <aside className="app-sidebar"><Logo/><button className="button add-sub" onClick={onAdd}><Plus size={16}/> Add subscription</button><div className="side-nav">{items.map(([id,Icon,label])=><button key={id} onClick={()=>setActive(id)} className={active===id?'active':''}><Icon size={17}/>{label}</button>)}</div><button className="side-signout" onClick={onSignOut}><LogOut size={16}/> Sign out</button></aside>}

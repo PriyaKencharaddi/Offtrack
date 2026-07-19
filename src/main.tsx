@@ -1,0 +1,11 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
+import { Landing } from './pages/Landing'
+import { AuthPage } from './pages/AuthPage'
+import { AuthCallback } from './pages/AuthCallback'
+import { LiveDashboard } from './pages/Dashboard'
+import { ProtectedRoute } from './components/ProtectedRoute'
+import './styles.css'
+createRoot(document.getElementById('root')!).render(<StrictMode><BrowserRouter><AuthProvider><Routes><Route path="/" element={<Landing/>}/><Route path="/auth/callback" element={<AuthCallback/>}/><Route path="/:mode" element={<AuthPage/>}/><Route path="/dashboard" element={<ProtectedRoute><LiveDashboard/></ProtectedRoute>}/><Route path="*" element={<Landing/>}/></Routes></AuthProvider></BrowserRouter></StrictMode>)
